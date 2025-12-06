@@ -1,0 +1,238 @@
+/* -------------------------------------
+   STRANGER THINGS - UPSIDE DOWN THEME
+-------------------------------------- */
+
+/* Retro Terminal Font */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Special Elite', monospace;
+  background: #000 url("https://res.cloudinary.com/dp3wirzjz/image/upload/v1736134230/upside_down_texture.jpg") repeat;
+  background-size: 480px;
+  color: #ff1a1a;
+  overflow-x: hidden;
+}
+
+/* VHS Static Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  background-image: url("https://res.cloudinary.com/dp3wirzjz/image/upload/v1736134229/vhs_noise.gif");
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  z-index: 9999;
+}
+
+/* Vecna Vines Animation */
+#vecnaVines {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  background-image: url("https://res.cloudinary.com/dp3wirzjz/image/upload/v1736134231/red_veins_overlay.png");
+  background-size: cover;
+  opacity: 0.12;
+  animation: vines 12s infinite alternate ease-in-out;
+  z-index: 9980;
+}
+
+@keyframes vines {
+  from { filter: brightness(0.5) blur(1px); transform: scale(1); }
+  to   { filter: brightness(1) blur(0px); transform: scale(1.04); }
+}
+
+/* APP LAYOUT */
+#appContainer {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+#sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0a0000, #200000);
+  padding: 25px;
+  border-right: 2px solid #ff0000;
+  display: none;
+  flex-direction: column;
+  animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-300px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+.logo {
+  color: #ff0000;
+  font-size: 28px;
+  text-shadow: 0 0 12px red;
+  margin-bottom: 25px;
+}
+
+#sidebarMenu button {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #ff4d4d;
+  font-size: 17px;
+  border: 1px solid #ff4d4d;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#sidebarMenu button:hover,
+#sidebarMenu .active {
+  background: #ff1a1a;
+  color: black;
+  box-shadow: 0 0 18px red;
+}
+
+/* LOGOUT */
+.logoutBtn {
+  margin-top: auto;
+  padding: 12px;
+  background: #330000;
+  border: 1px solid #ff1a1a;
+  color: #ff1a1a;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.logoutBtn:hover {
+  background: #ff1a1a;
+  color: black;
+  box-shadow: 0 0 15px red;
+}
+
+/* TOP BAR */
+#topBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: #ff4d4d;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.smallBtn {
+  padding: 7px 13px;
+  font-size: 14px;
+}
+
+/* MAIN CONTENT */
+#mainContent {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.panel { display: none; }
+
+.card {
+  background: rgba(15,0,0,0.92);
+  border: 1px solid #ff0000;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 450px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.6);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: rgba(0,0,0,0.85);
+  color: #ff4d4d;
+  border: 1px solid #ff3333;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255,0,0,0.3);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: red;
+  box-shadow: 0 0 15px rgba(255,0,0,0.7);
+}
+
+input::placeholder {
+  color: #ff8585;
+}
+
+/* BUTTONS */
+.primaryBtn {
+  width: 100%;
+  padding: 14px;
+  background: #ff0000;
+  color: black;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 12px red;
+  transition: 0.25s;
+}
+
+.primaryBtn:hover {
+  background: #ff4d4d;
+  box-shadow: 0 0 20px red;
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid red;
+  padding: 12px;
+  color: red;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.secondaryBtn:hover {
+  background: red;
+  color: black;
+  box-shadow: 0 0 15px red;
+}
+
+/* START SCREEN */
+.centerPanel {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.subtitle {
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+/* OUTPUT PANEL */
+#outputPanel {
+  margin-top: 30px;
+  max-width: 700px;
+}
+
+#output {
+  background: #ececec;
+  color: #39ff14;
+  padding: 20px;
+  min-height: 250px;
+  border: 1px solid green;
+  border-radius: 10px;
+  box-shadow: 0 0 15px green;
+  overflow-x: auto;
+  font-size: 14px;
+}

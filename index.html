@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Home Cleaning Service – Project 2</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<div id="appContainer">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside id="sidebar">
+    <h2 class="logo">CleaningSvc</h2>
+
+    <div id="sidebarMenu"></div>
+
+    <button id="logoutBtn" class="logoutBtn">Logout</button>
+  </aside>
+
+  <!-- ===================== MAIN CONTENT AREA ===================== -->
+  <main id="mainContent">
+
+    <!-- Top Bar: shows logged-in user + Go Back -->
+    <div id="topBar">
+      <span id="loggedInUser"></span>
+      <button id="backBtn" class="secondaryBtn smallBtn">Go Back</button>
+    </div>
+
+    <!-- Start Screen -->
+    <section id="startScreen" class="centerPanel">
+      <h1>Home Cleaning Service</h1>
+      <p class="subtitle">Project 2 – CSC 4710</p>
+      <div class="buttonRow">
+        <button class="primaryBtn" onclick="showLogin()">Login</button>
+        <button class="secondaryBtn" onclick="showRegister()">Register</button>
+      </div>
+    </section>
+
+    <!-- Login Panel -->
+    <section id="loginPanel" class="panel card">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input name="username" placeholder="Username (email or anna)" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button class="primaryBtn">Login</button>
+      </form>
+    </section>
+
+    <!-- Register Panel -->
+    <section id="registerPanel" class="panel card">
+      <h2>Create a New Client Account</h2>
+      <form id="clientForm">
+        <input name="first_name" placeholder="First Name" required>
+        <input name="last_name" placeholder="Last Name" required>
+        <input name="address" placeholder="Address" required>
+        <input name="phone" placeholder="Phone" required>
+        <input name="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <input name="cc_last4" placeholder="CC Last 4 (optional)">
+        <button class="primaryBtn">Register</button>
+      </form>
+    </section>
+
+    <!-- CLIENT PANELS -->
+    <section id="createRequest" class="panel card">
+      <h2>Create Service Request</h2>
+      <form id="requestForm">
+        <input name="client_id" placeholder="Client ID" required>
+        <input name="service_address" placeholder="Service Address" required>
+        <select name="cleaning_type">
+          <option value="BASIC">Basic</option>
+          <option value="DEEP">Deep Cleaning</option>
+          <option value="MOVE_OUT">Move-Out</option>
+        </select>
+        <input type="number" name="num_rooms" placeholder="Number of Rooms" required>
+        <input type="datetime-local" name="preferred_datetime">
+        <input type="number" name="proposed_budget" step="0.01" placeholder="Budget">
+        <input name="notes" placeholder="Notes (optional)">
+        <button class="primaryBtn">Submit Request</button>
+      </form>
+    </section>
+
+    <section id="acceptQuote" class="panel card">
+      <h2>Accept Quote</h2>
+      <form id="acceptQuoteForm">
+        <input name="quote_id" placeholder="Quote ID" required>
+        <button class="primaryBtn">Accept</button>
+      </form>
+    </section>
+
+    <section id="payBill" class="panel card">
+      <h2>Pay Bill</h2>
+      <form id="payForm">
+        <input name="bill_id" placeholder="Bill ID" required>
+        <input name="client_id" placeholder="Client ID" required>
+        <input name="amount" type="number" step="0.01" placeholder="Amount" required>
+        <button class="primaryBtn">Pay</button>
+      </form>
+    </section>
+
+    <section id="disputeBill" class="panel card">
+      <h2>Dispute Bill</h2>
+      <form id="disputeForm">
+        <input name="bill_id" placeholder="Bill ID" required>
+        <input name="note" placeholder="Dispute Reason">
+        <button class="primaryBtn">Submit</button>
+      </form>
+    </section>
+
+    <!-- CONTRACTOR PANELS -->
+    <section id="createQuote" class="panel card">
+      <h2>Create Quote</h2>
+      <form id="quoteForm">
+        <input name="request_id" placeholder="Request ID" required>
+        <input name="price" type="number" placeholder="Price" required>
+        <input name="time_window_start" type="datetime-local">
+        <input name="time_window_end" type="datetime-local">
+        <input name="note" placeholder="Note (optional)">
+        <button class="primaryBtn">Create Quote</button>
+      </form>
+    </section>
+
+    <section id="completeOrder" class="panel card">
+      <h2>Complete Order</h2>
+      <form id="completeOrderForm">
+        <input name="order_id" placeholder="Order ID" required>
+        <button class="primaryBtn">Complete</button>
+      </form>
+    </section>
+
+    <section id="createBill" class="panel card">
+      <h2>Create Bill</h2>
+      <form id="billForm">
+        <input name="order_id" placeholder="Order ID" required>
+        <input name="amount" placeholder="Amount" required>
+        <button class="primaryBtn">Create Bill</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="panel card">
+      <h2>Dashboard Queries</h2>
+      <div class="buttonColumn">
+        <button id="btnFrequent" class="secondaryBtn">Frequent Clients</button>
+        <button id="btnUncommitted" class="secondaryBtn">Uncommitted Clients</button>
+        <button id="btnProspective" class="secondaryBtn">Prospective Clients</button>
+        <button id="btnLargestJob" class="secondaryBtn">Largest Job</button>
+        <button id="btnOverdue" class="secondaryBtn">Overdue Bills</button>
+        <button id="btnBad" class="secondaryBtn">Bad Clients</button>
+        <button id="btnGood" class="secondaryBtn">Good Clients</button>
+      </div>
+    </section>
+
+    <section id="outputPanel">
+      <h2>Output</h2>
+      <pre id="output"></pre>
+    </section>
+
+  </main>
+</div>
+
+<script src="index.js?v=2"></script>
+
+</body>
+</html>
